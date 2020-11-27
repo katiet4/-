@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -6,6 +7,7 @@ class Map
 {
 public:
 	void draw(){
+		system("cls");
 		cout<<"\n---------------\n";
 		cout<<"1-9 is coords\nO or X are chars\n\n";
 		int charCurrent = 0;
@@ -18,8 +20,6 @@ public:
 			}
 			cout<<"\n";
 		}
-
-
 
 	}
 	int set_chars(int coord, char ch){
@@ -129,11 +129,22 @@ public:
 
 
 
+bool is_int32(int integer){
+
+	if(integer){
+		cout<<"is integer";
+		return true;
+	}
+
+	return false;
+}
+
+
 int main(){
 	while (true)
 	{
 		Map *map = new Map();
-		system("cls");
+		
 		map->draw();
 
 		X *x = new X(); 
@@ -142,11 +153,14 @@ int main(){
 		int whoMove = 1; // 1 - X; 0 - O.
 		for (int i = 0; i < 9; i++)
 		{
-			int coord, response;
-			cout<<"Input coord:";
-			cin >> coord;
-			cout<<"\n";
 
+			char coord_str[32];
+			int coord;
+			int response;
+			cout<<"Input coord:";
+			cin >> coord_str;
+			coord = atoi(coord_str);
+			cout<<coord;
 			if (whoMove)
 			{	
 				// Полиморфизм
@@ -166,19 +180,16 @@ int main(){
 				if(response == 200){
 					whoMove = !whoMove;
 					char winner = whoMove ? 'X' : 'O';
-					system("cls");
 					map->draw();
 					cout<<winner<<" won\n";
 					break;
 				}
 			}
 			if(i==8){
-				system("cls");
 				map->draw();
 				cout<<"Nobody won\n";
 				break;
 			}
-			system("cls");
 			map->draw();
 		}
 
