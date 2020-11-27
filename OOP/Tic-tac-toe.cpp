@@ -7,7 +7,7 @@ class Map
 public:
 	void draw(){
 		cout<<"\n---------------\n";
-		cout<<"1-9 is coords\nO or X is chars\n\n";
+		cout<<"1-9 is coords\nO or X are chars\n\n";
 		int charCurrent = 0;
 		for (int i = 0; i < 3; i++)
 		{
