@@ -41,6 +41,15 @@ public:
 		this->chars[coord] = ch;
 
 		// checking somebody won
+		return find_winner(ch);
+		
+	}
+
+// Инкапсуляция
+private:
+
+	int find_winner(char ch){
+
 		for (int i = 0; i < 3; i++)
 		{
 			int wonLeftToRight = 0;
@@ -83,15 +92,11 @@ public:
 			}
 
 		}
-
-
-
 		return 0;
+
 	}
 
-// Инкапсуляция
-private:
-char chars[9]={'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+	char chars[9]={'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 };
 
