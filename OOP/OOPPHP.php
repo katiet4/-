@@ -7,13 +7,10 @@
 
 
 	<?php
-	class Password
+	interface Password
 	{
 		
-		function generate_password($length)
-		{
-			# code...
-		}
+		function generate_password($length);
 	}
 
 	class Lvl_1 extends Password
